@@ -1,0 +1,19 @@
+[project]
+name = "csc561-project-2-cnn"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "MilanSuri", email = "milansuri19@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pytest>=9.1.1",
+]
+
+[project.scripts]
+csc561-project-2-cnn = "csc561_project_2_cnn:main"
+
+[build-system]
+requires = ["uv_build>=0.12.11,<0.13.0"]
+build-backend = "uv_build"
