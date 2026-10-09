@@ -3,7 +3,6 @@ import sympy as sp
 
 s = sp.Symbol('s')
 
-# Compute derivatives of a term
 exp_var = lambda c: c * sp.exp(s)
 constant_var = lambda c: 0
 ln_var = lambda c: c / s
@@ -54,3 +53,10 @@ def product(f: np.array, g: np.array):
     g_prime = derivative_expression(g)
 
     return sp.expand(f_prime * g_expr + g_prime * f_expr)
+
+def chain (f: np.array, g: np.array):
+    f_prime = derivative_expression(f)
+    g_prime = derivative_expression(g)
+    g_expr = to_expression(g)
+
+    return sp.expand (f_prime.subs(s, g_expr) * g_prime)
