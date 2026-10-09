@@ -39,7 +39,7 @@ def derivative_expression(f):
 
     return expression
 
-def addition(f: np.array, g: np.array):
+def differentiate_sum(f: np.array, g: np.array):
     f_prime = derivative_expression(f)
     g_prime = derivative_expression(g)
 
