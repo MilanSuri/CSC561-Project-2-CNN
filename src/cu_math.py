@@ -16,3 +16,9 @@ def derivative(exp_terms : np.array, constant_terms : np.array, ln_terms : np.ar
     differentiated_power = np.array([power_var(x, y) for x, y in power_terms])
 
     return differentiated_exp, differentiated_constant, differentiated_ln, differentiated_power
+
+def addition(f: np.array, g : np.array):
+    f_prime = derivative(f[0],f[1], f[2], f[3])
+    g_prime = derivative(g[0], g[1], g[2], g[3])
+
+    return np.array([ f_prime[0] + g_prime[0], f_prime[1] + g_prime[1], f_prime[2] + g_prime[2], f_prime[3] + g_prime[3]])
