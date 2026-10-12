@@ -46,3 +46,25 @@ def v_elem_mul (f : np.array, g: np.array):
                 result[i][j] = f[i][j] * g[i][j]
 
     return result
+
+def v_dot_prod (f : np.array, g: np.array):
+    if f.ndim == 1:
+        if f.shape != g.shape:
+            raise ValueError("Vector/Matrix f and g have different shapes, for multiplication must be the same")
+
+        result = 0.0
+        for i in range(len(f)):
+            result += f[i] * g[i]
+        return result
+    elif f.ndim == 2:
+        if f.shape[1] != g.shape[0]:
+            raise ValueError ("Columns of Matrix f don't match row number matrix g")
+
+        result = np.zeros((len(f), g.shape[1]), dtype=np.float32)
+        for i in range(len(f)):
+            for j in range(g.shape[1]):
+                total_sum = 0
+                for k in range(f.shape[1]):
+                    total_sum += f[i][k] * g[k][j]
+                result[i][j] = total_sum
+        return result
