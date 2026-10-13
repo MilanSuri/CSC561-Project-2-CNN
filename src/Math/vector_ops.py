@@ -68,3 +68,15 @@ def v_dot_prod (f : np.array, g: np.array):
                     total_sum += f[i][k] * g[k][j]
                 result[i][j] = total_sum
         return result
+
+def transpose(f : np.array):
+
+    rows, cols = f.shape
+    transposed = np.empty((cols, rows), dtype= np.float32)
+
+    for i in range(rows):
+        for j in range(cols):
+            transposed[j][i] = f[i][j]
+
+    return transposed
+
