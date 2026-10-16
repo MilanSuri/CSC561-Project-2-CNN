@@ -1,4 +1,3 @@
-from cu_math import *
 import numpy as np
 
 # Can use a negative f/g if I want to do subtraction later
@@ -69,14 +68,16 @@ def v_dot_prod (f : np.array, g: np.array):
                 result[i][j] = total_sum
         return result
 
-def transpose(f : np.array):
+def transpose(f: np.array):
+    if f.ndim == 1:
+        return f.copy()
 
     rows, cols = f.shape
-    transposed = np.empty((cols, rows), dtype= np.float32)
+    result = np.zeros((cols, rows), dtype=f.dtype)
 
     for i in range(rows):
         for j in range(cols):
-            transposed[j][i] = f[i][j]
+            result[j, i] = f[i, j]
 
-    return transposed
+    return result
 
