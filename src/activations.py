@@ -44,7 +44,6 @@ def relu_d(x : np.ndarray):
 
     return result
 
-
 def s_sigmoid(x):
     if x >= 0:
         return 1 / (1 + math.exp(-x))
@@ -68,7 +67,6 @@ def sigmoid (x: np.ndarray):
                 result[i, j] = s_sigmoid(x[i, j])
 
     return result
-
 
 def a_sigmoid_d(x):
     sigmoid = s_sigmoid(x)

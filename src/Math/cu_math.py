@@ -12,7 +12,6 @@ power_var = lambda c, n: c * (n) * s ** (n - 1) if n != 0 else sp.sympify(0)
 def to_function(expression, variables=(s,)):
     return sp.lambdify(variables, expression, modules="numpy")
 
-
 def derivative(exp_terms: np.array, constant_terms: np.array, ln_terms: np.array, power_terms: np.array):
     differentiated_exp = np.array([exp_var(x) for x in exp_terms])
     differentiated_constant = np.array([constant_var(x) for x in constant_terms])
@@ -87,7 +86,6 @@ def gradient_expression(f, variables):
         sp.diff(f, variable)
         for variable in variables
     ]
-
 
 def gradient_function(f, variables):
     gradient = gradient_expression(f, variables)
