@@ -8,6 +8,11 @@ constant_var = lambda c: 0
 ln_var = lambda c: c / s
 power_var = lambda c, n: c * (n) * s ** (n - 1) if n != 0 else sp.sympify(0)
 
+
+def to_function(expression, variables=(s,)):
+    return sp.lambdify(variables, expression, modules="numpy")
+
+
 def derivative(exp_terms: np.array, constant_terms: np.array, ln_terms: np.array, power_terms: np.array):
     differentiated_exp = np.array([exp_var(x) for x in exp_terms])
     differentiated_constant = np.array([constant_var(x) for x in constant_terms])
@@ -15,6 +20,10 @@ def derivative(exp_terms: np.array, constant_terms: np.array, ln_terms: np.array
     differentiated_power = np.array([power_var(x, y) for x, y in power_terms])
 
     return differentiated_exp, differentiated_constant, differentiated_ln, differentiated_power
+
+def derivative_function(f):
+    expression = derivative_expression(f)
+    return to_function(expression)
 
 def to_expression(f):
     exp_terms, constant_terms, ln_terms, power_terms = f
@@ -45,6 +54,10 @@ def differentiate_sum(f: np.array, g: np.array):
 
     return sp.expand(f_prime + g_prime)
 
+def differentiate_sum_function(f, g):
+    expression = differentiate_sum(f, g)
+    return to_function(expression)
+
 def product(f: np.array, g: np.array):
     f_expr = to_expression(f)
     g_expr = to_expression(g)
@@ -54,9 +67,31 @@ def product(f: np.array, g: np.array):
 
     return sp.expand(f_prime * g_expr + g_prime * f_expr)
 
+def product_function(f, g):
+    expression = product(f, g)
+    return to_function(expression)
+
 def chain (f: np.array, g: np.array):
     f_prime = derivative_expression(f)
     g_prime = derivative_expression(g)
     g_expr = to_expression(g)
 
     return sp.expand (f_prime.subs(s, g_expr) * g_prime)
+
+def chain_function(f, g):
+    expression = chain(f, g)
+    return to_function(expression)
+
+def gradient_expression(f, variables):
+    return [
+        sp.diff(f, variable)
+        for variable in variables
+    ]
+
+
+def gradient_function(f, variables):
+    gradient = gradient_expression(f, variables)
+    gradient_eval = to_function(gradient, variables)
+
+    evaluate_gradient = lambda x: np.array(gradient_eval(*x), dtype=np.float32)
+    return evaluate_gradient
