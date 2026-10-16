@@ -1,7 +1,5 @@
 import unittest
-import numpy as np
 from ..vector_ops import *
-
 
 class TestVectorOps(unittest.TestCase):
 
@@ -116,7 +114,6 @@ class TestVectorOps(unittest.TestCase):
         np.testing.assert_array_equal(
             result, np.array([1, 2, 3])
         )
-
 
 if __name__ == "__main__":
     unittest.main()
