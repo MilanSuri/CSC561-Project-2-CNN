@@ -20,7 +20,6 @@ def derivative(exp_terms: np.array, constant_terms: np.array, ln_terms: np.array
 
     return differentiated_exp, differentiated_constant, differentiated_ln, differentiated_power
 
-
 def derivative_function(f, variable):
     expression = derivative_expression(f, variable)
     return to_function(expression)
@@ -35,7 +34,6 @@ def to_expression(f):
     expression += sum(c * v ** n for c, n, v in power_terms)
 
     return expression
-
 
 def derivative_expression(f, variable):
     differentiated = derivative(*f, variable)
@@ -78,7 +76,6 @@ def chain(f: np.array, g: np.array, variable):
 
     return sp.expand(f_prime.subs(variable, g_expr) * g_prime)
 
-
 def chain_function(f, g, variable):
     expression = chain(f, g, variable)
     return to_function(expression)
@@ -94,7 +91,7 @@ def gradient_expression(f, variables: list):
 
 def gradient_function(f, variables):
     gradient = gradient_expression(f, variables)
-    gradient_eval = to_function(gradient, tuple(variables))
+    gradient_eval = to_function(list(gradient), tuple(variables))
 
     def evaluate_gradient(x):
         return np.array(gradient_eval(*x), dtype=np.float32)
