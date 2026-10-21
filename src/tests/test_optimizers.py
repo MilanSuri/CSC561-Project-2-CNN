@@ -2,6 +2,10 @@ import unittest
 import numpy as np
 from src.optimizers import *
 
+
+# Used Gemini for generating test cases: https://share.gemini.google/V00UIlfqOt33
+
+
 # Assuming your functions and custom vector ops are imported:
 # from your_module import gradient_descent, logistic_gradient
 

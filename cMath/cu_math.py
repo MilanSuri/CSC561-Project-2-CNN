@@ -1,7 +1,7 @@
 # Milan Suri
 # CSC 561 NN Project
 # This file is used for symbolic and numeric differentiation and gradient computation
-# https://docs.sympy.org/latest/index.html, Sophia Zhan (used for Math advice + explanations)
+# https://docs.sympy.org/latest/index.html, Sophia Zhan (used for cMath advice + explanations)
 
 import numpy as np
 import sympy as sp

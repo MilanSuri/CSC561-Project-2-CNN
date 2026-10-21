@@ -1,8 +1,8 @@
 import unittest
 import numpy as np
-from ..activations import *
+from src.activations import *
 
-# Used Gemini for generating test cases: https://share.gemini.google/EEuP0w0MAjQ9
+# Used Gemini for generating test cases: https://share.gemini.google/V00UIlfqOt33
 
 # Assuming your activation functions are imported or defined above:
 # from activations import relu, relu_d, sigmoid, sigmoid_d

@@ -1,11 +1,8 @@
 import unittest
 import numpy as np
-from ..logistic_regression import *
+from src.logistic_regression import *
 
-
-# Assuming your logistic regression functions and dependencies are imported:
-# from logistic_regression import logistic_forward, logistic_loss, train_log_reg, predict_proba, predict
-
+# Used Gemini for generating test cases: https://share.gemini.google/V00UIlfqOt33
 
 class LogisticRegressionTest(unittest.TestCase):
 
@@ -37,12 +34,7 @@ class LogisticRegressionTest(unittest.TestCase):
 
     def test_predict_thresholding(self):
         """Test that predict correctly applies the decision threshold."""
-        # Mock probabilities array
         probabilities = np.array([0.2, 0.49, 0.5, 0.51, 0.9], dtype=np.float32)
-
-        # Using a dummy weights/bias since predict calls predict_proba internally,
-        # but we can test the threshold logic directly via predict if we mock or pass valid inputs,
-        # or test the underlying threshold calculation:
         threshold = 0.5
         expected_classes = np.array([0, 0, 1, 1, 1], dtype=np.int32)
         computed_classes = (probabilities >= threshold).astype(np.int32)
@@ -79,9 +71,6 @@ class LogisticRegressionTest(unittest.TestCase):
         and verify that it successfully learns the decision boundary and
         correctly classifies new, unseen data points.
         """
-        # Create a simple dataset:
-        # Class 0 points are located near [1, 1]
-        # Class 1 points are located near [8, 8]
         X_train = np.array([
             [1.0, 1.5],
             [1.5, 1.0],
@@ -104,7 +93,7 @@ class LogisticRegressionTest(unittest.TestCase):
         # Interpretability check 2: Test predictions on clear training/test points
         X_test = np.array([
             [1.2, 1.2],  # Should be classified as 0
-            [8.8, 8.2]  # Should be classified as 1
+            [8.8, 8.2]   # Should be classified as 1
         ], dtype=np.float32)
 
         predictions = predict(X_test, weights, bias)

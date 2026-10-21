@@ -3,10 +3,9 @@
 # Are going to be used for the forward propogation, computing the loss, training loops, predictions of log reg.
 # Used only in class materials
 
-from Math.vector_ops import *
-from activations import sigmoid
-from losses import bce
-from optimizers import *
+from src.activations import sigmoid
+from src.losses import bce
+from src.optimizers import *
 
 def logistic_forward(X, weights, bias):
     # Calculate the weighted sum of inputs and apply the sigmoid function
