@@ -1,7 +1,6 @@
 from Math.vector_ops import *
 
 def gradient_descent(f, gradient, initial: np.array, learning_rate: float = 0.01, tolerance: float = 1e-6, max_iterations: int = 10000):
-
     # Get starting point of GD
     x = np.array(initial, dtype=np.float32)
     iteration = 0

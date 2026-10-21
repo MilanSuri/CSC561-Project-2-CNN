@@ -1,7 +1,15 @@
+# Milan Suri
+# CSC 561
+# This is for vector operations
+# Source: https://www.geeksforgeeks.org/data-science/vectors-for-ml/
+
 import numpy as np
 
 # Can use a negative f/g if I want to do subtraction later
 def v_add (f: np.array, g: np.array):
+    # Vector addition
+
+    # Guarding dimentsions
     if f.shape != g.shape:
         raise ValueError ("Vector/Matrix f and g have different shapes, for addition must be the same")
 
@@ -18,6 +26,8 @@ def v_add (f: np.array, g: np.array):
     return result
 
 def v_scal_mul (f: np.array, scalar: float):
+    # Scalar multiplication
+
     if f.ndim == 1:
         result = np.empty(len(f), dtype = np.float32)
         for i in range(len(f)):
@@ -31,6 +41,7 @@ def v_scal_mul (f: np.array, scalar: float):
     return result
 
 def v_elem_mul (f : np.array, g: np.array):
+    # Vector multiplication
     if f.shape != g.shape:
         raise ValueError ("Vector/Matrix f and g have different shapes, for multiplication must be the same")
 
@@ -47,6 +58,7 @@ def v_elem_mul (f : np.array, g: np.array):
     return result
 
 def v_dot_prod (f : np.array, g: np.array):
+    # Dot product
     if f.ndim == 1:
         if f.shape != g.shape:
             raise ValueError("Vector/Matrix f and g have different shapes, for multiplication must be the same")
@@ -69,6 +81,7 @@ def v_dot_prod (f : np.array, g: np.array):
         return result
 
 def transpose(f: np.array):
+    # Transpose a vector - flip rows/cols
     if f.ndim == 1:
         return f.copy()
 

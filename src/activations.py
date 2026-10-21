@@ -1,5 +1,12 @@
+# Milan Suri
+# CSC 561
+# This file is for activation functions. These add nonlinearity to models and is used to create decision boundaries.
+
 import math
 import numpy as np
+
+# ReLU https://www.geeksforgeeks.org/deep-learning/relu-activation-function-in-deep-learning/
+# Used to get the formula and better understand ReLU
 
 def s_relu (x):
     return max(0, x)
@@ -43,6 +50,8 @@ def relu_d(x : np.ndarray):
                 result[i, j] = s_relu_d(x[i, j])
 
     return result
+
+# Sigmoid — Used for logistic regression, used class materials.
 
 def s_sigmoid(x):
     if x >= 0:
