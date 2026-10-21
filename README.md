@@ -15,4 +15,4 @@ This is seen in the photo: `shap_summary.png` in `src` folder.
 ![Shap Explainer](src/shap_summary.png)
 
 This is the Shap explainer. At 0.0 you have no effect on the model, each point shows how the model interpreted a patient. 
-The colors correspond with the size of the change, and then the +/- show how it impacts the prediction. 0 was benign and 1 was malignant.
+The colors correspond with the size of the change, and then the +/- show how it impacts the prediction. The classification of 0 meant benign and 1 is malignant. Therefore if it's a negative impact, it's more associated with being benign, and if it's positive more malignant.
