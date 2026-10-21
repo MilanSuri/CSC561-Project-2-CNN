@@ -25,3 +25,18 @@ def gradient_descent(f, gradient, initial: np.array, learning_rate: float = 0.01
 
         iteration += 1
     return x, f(x), iteration
+
+def logistic_gradient(X, y, theta):
+    m = X.shape[0]
+    weights = theta[:-1]
+    bias = theta[-1]
+
+    z = v_dot_prod(X, weights.reshape(-1, 1)).reshape(-1) + bias
+    predictions = 1.0 / (1.0 + np.exp(-z))
+
+    errors = predictions - y
+
+    grad_weights = v_dot_prod(transpose(X), errors.reshape(-1, 1)).reshape(-1) / m
+    grad_bias = np.sum(errors) / m
+
+    return np.concatenate([grad_weights, np.array([grad_bias], dtype=np.float32)]).astype(np.float32)
