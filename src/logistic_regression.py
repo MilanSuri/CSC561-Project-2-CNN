@@ -3,7 +3,6 @@
 # Are going to be used for the forward propogation, computing the loss, training loops, predictions of log reg.
 # Used only in class materials
 
-import numpy as np
 from Math.vector_ops import *
 from activations import sigmoid
 from losses import bce
