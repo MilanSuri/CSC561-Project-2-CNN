@@ -94,3 +94,14 @@ def transpose(f: np.array):
 
     return result
 
+def v_sum(f: np.ndarray):
+    # Custom summation
+    total = 0.0
+    if f.ndim == 1:
+        for i in range(len(f)):
+            total += f[i]
+    elif f.ndim == 2:
+        for i in range(len(f)):
+            for j in range(f.shape[1]):
+                total += f[i][j]
+    return float(total)

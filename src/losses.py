@@ -3,6 +3,10 @@
 '''
 This file is my Binary Cross Entropy File. BCE computes the difference between an ML models predicted probas and the
 the actual binary labels. [-y log (p) + (1-y) log (1-p)] = BCE.
+
+https://www.geeksforgeeks.org/deep-learning/binary-cross-entropy-log-loss-for-binary-classification/
+
+https://docs.pytorch.org/docs/2.14/generated/torch.nn.BCELoss.html
 '''
 
 import math

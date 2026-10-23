@@ -14,6 +14,10 @@ Accuracy: 0.9912 (99.12%)
 Correct predictions: 113
 Total test samples: 114
 
+
+https://scikit-learn.org/stable/api/sklearn.datasets.html
+https://shap.readthedocs.io/en/latest/
+https://www.aidancooper.co.uk/a-non-technical-guide-to-interpreting-shap-analyses/
 '''
 
 import numpy as np
@@ -127,7 +131,6 @@ background = X_train[:30]
 X_explain = X_test[:50]
 
 explainer = shap.KernelExplainer(shap_predict, background, feature_names=dataset.feature_names)
-
 shap_values = explainer.shap_values(X_explain, nsamples=200)
 
 

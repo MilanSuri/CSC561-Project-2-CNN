@@ -1,3 +1,13 @@
+# Milan Suri
+# CSC 561
+# This file holds the different optimization algorithms. These include gradient descent, SGD, and gradient for logistic reg
+# basically used to see how to best fit the model to the available data.
+# Sources:
+# https://www.geeksforgeeks.org/machine-learning/ml-stochastic-gradient-descent-sgd/
+# Gradient descent was covered in class
+# The logistic gradient function is used to compute the gradient of the logistic regression.
+
+
 from cMath.vector_ops import *
 
 def gradient_descent(f, gradient, initial: np.array, learning_rate: float = 0.01, tolerance: float = 1e-6, max_iterations: int = 10000):
@@ -36,11 +46,11 @@ def logistic_gradient(X, y, theta):
     errors = predictions - y
 
     grad_weights = v_dot_prod(transpose(X), errors.reshape(-1, 1)).reshape(-1) / m
-    grad_bias = np.sum(errors) / m
+    grad_bias = v_sum(errors) / m
 
     return np.concatenate([grad_weights, np.array([grad_bias], dtype=np.float32)]).astype(np.float32)
 
-# This is true SGD with one point instead of full dataset or mini-batch
+# This is SGD with one point instead of full dataset or mini-batch
 def sgd(f, gradient, initial: np.array, learning_rate : float = 0.01, tolerance: float = 1e-6, max_iterations: int = 10000):
     x = np.array(initial, dtype=np.float32)
     iteration = 0
