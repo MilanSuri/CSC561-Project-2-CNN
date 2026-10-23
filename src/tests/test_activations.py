@@ -1,6 +1,6 @@
 # Milan Suri
 # CSC 561
-# This file tests the
+# This file tests the activation functions so like ReLU and sigmoid
 
 import unittest
 import numpy as np
