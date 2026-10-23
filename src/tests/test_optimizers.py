@@ -1,3 +1,7 @@
+# Milan Suri
+# CSC 561
+# This file tests the optimizers file in src
+
 import unittest
 import numpy as np
 from src.optimizers import *

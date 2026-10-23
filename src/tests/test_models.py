@@ -1,3 +1,5 @@
+# Testing file for the logistic regression file
+
 import unittest
 import numpy as np
 from src.logistic_regression import *

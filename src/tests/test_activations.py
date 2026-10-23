@@ -1,12 +1,12 @@
+# Milan Suri
+# CSC 561
+# This file tests the
+
 import unittest
 import numpy as np
 from src.activations import *
 
 # Used Gemini for generating test cases: https://share.gemini.google/V00UIlfqOt33
-
-# Assuming your activation functions are imported or defined above:
-# from activations import relu, relu_d, sigmoid, sigmoid_d
-
 
 class ActivationFunctionsTest(unittest.TestCase):
 

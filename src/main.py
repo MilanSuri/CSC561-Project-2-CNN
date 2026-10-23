@@ -1,3 +1,21 @@
+# Milan Suri
+# CSC 561
+'''
+This is the main pipeline of the project. It combines the logistic regression model with gradient descent to
+train my logistic regression model on the breast cancer dataset from sklearn. Achieves these results:
+
+--- Training Results ---
+Final loss: 0.10726159
+Iterations: 10000
+Bias: 0.317636
+
+--- Test Results ---
+Accuracy: 0.9912 (99.12%)
+Correct predictions: 113
+Total test samples: 114
+
+'''
+
 import numpy as np
 import shap
 import matplotlib.pyplot as plt
@@ -85,12 +103,12 @@ probabilities = np.asarray(predict_proba(X_test, weights, bias)).reshape(-1)
 
 accuracy = np.mean(predictions == y_test)
 
-print("\n--- Training Results ---")
+print("--- Training Results ---")
 print("Final loss:", loss)
 print("Iterations:", iterations)
 print("Bias:", bias)
 
-print("\n--- Test Results ---")
+print("\--- Test Results ---")
 print(f"Accuracy: {accuracy:.4f} ({accuracy * 100:.2f}%)")
 print("Correct predictions:", int(np.sum(predictions == y_test)))
 print("Total test samples:", len(y_test))
@@ -113,7 +131,7 @@ explainer = shap.KernelExplainer(shap_predict, background, feature_names=dataset
 shap_values = explainer.shap_values(X_explain, nsamples=200)
 
 
-# 11. Plot and save the SHAP summary
+# Plot and save the SHAP summary
 shap.summary_plot(
 shap_values,
     X_explain,
