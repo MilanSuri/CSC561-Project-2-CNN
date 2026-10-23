@@ -39,3 +39,27 @@ def logistic_gradient(X, y, theta):
     grad_bias = np.sum(errors) / m
 
     return np.concatenate([grad_weights, np.array([grad_bias], dtype=np.float32)]).astype(np.float32)
+
+# This is true SGD with one point instead of full dataset or mini-batch
+def sgd(f, gradient, initial: np.array, learning_rate : float = 0.01, tolerance: float = 1e-6, max_iterations: int = 10000):
+    x = np.array(initial, dtype=np.float32)
+    iteration = 0
+
+    while iteration < max_iterations:
+        # get the gradient of the original function
+        grad = np.array(gradient(x), dtype=np.float32)
+
+        # Validation check on dims
+        if grad.shape != x.shape:
+            raise ValueError("Gradient and initial vector have different shapes")
+
+        # Calculate the square root of the dot product -- the magnitude
+        grad_norm = np.sqrt(v_dot_prod(grad, grad))
+
+        if grad_norm < tolerance:
+            break
+
+        # Scale gradient by the learning rate
+        scaled_grad = v_scal_mul(grad, learning_rate)
+        # Update x with the new updated gradient
+        x = v_add(x, v_scal_mul(scaled_grad, -1.0))

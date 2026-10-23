@@ -108,7 +108,7 @@ print("Final loss:", loss)
 print("Iterations:", iterations)
 print("Bias:", bias)
 
-print("\--- Test Results ---")
+print("--- Test Results ---")
 print(f"Accuracy: {accuracy:.4f} ({accuracy * 100:.2f}%)")
 print("Correct predictions:", int(np.sum(predictions == y_test)))
 print("Total test samples:", len(y_test))

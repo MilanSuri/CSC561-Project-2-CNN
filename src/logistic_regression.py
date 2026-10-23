@@ -51,16 +51,13 @@ def train_log_reg(X, y, learning_rate = 0.01, tolerance=1e-6, max_iterations=100
     def objective(theta):
         weights = theta[:-1]
         bias = theta[-1]
-
         return logistic_loss(X, y, weights, bias)
 
-    # Compute the gradients of the weights and bias for optimization
-    def gradient():
-        grad_weights, grad_bias = logistic_gradient(X, y, theta)
+    # Compute the gradients for the current parameters
+    def gradient(theta):
+        return logistic_gradient(X, y, theta)
 
-        return np.concatenate([grad_weights, np.array([grad_bias], dtype=np.float32)])
-
-    # Update parameters using gradient descent to minimize the loss
+    # Update parameters using gradient descent
     theta, loss, iterations = gradient_descent(
         objective,
         gradient,
