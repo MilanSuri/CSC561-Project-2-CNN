@@ -105,3 +105,16 @@ def v_sum(f: np.ndarray):
             for j in range(f.shape[1]):
                 total += f[i][j]
     return float(total)
+
+def v_col_sum(f: np.ndarray):
+    # Sum each column of a matrix
+    if f.ndim != 2:
+        raise ValueError("Input must be a 2D matrix")
+
+    result = np.zeros(f.shape[1], dtype=np.float32)
+
+    for i in range(f.shape[0]):
+        for j in range(f.shape[1]):
+            result[j] += f[i][j]
+
+    return result
