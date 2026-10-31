@@ -1,3 +1,8 @@
+# Milan Suri
+# CSC 561
+# This file is the main pipeline for running the logistic regression class implementation that matches or is close
+# to the scikit-learn implementation. Uses random data, and then trains a log regression model, allows you to
+# apply default or specify hyperparameters and then fits and runs.
 
 import numpy as np
 from src.LogRegClass import LogisticRegression

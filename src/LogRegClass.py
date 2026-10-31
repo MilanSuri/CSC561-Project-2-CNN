@@ -1,3 +1,9 @@
+# Milan Suri
+# CSC 561
+# Essentially a wrapper class that takes all my methods from the logistic regression and convert it into a class
+# that follows essentially the same standards at scikit-learn's Logistic Regression class.
+# https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
+
 from src.activations import sigmoid
 from src.losses import bce
 from src.optimizers import *
