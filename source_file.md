@@ -17,3 +17,9 @@ https://www.geeksforgeeks.org/machine-learning/ml-stochastic-gradient-descent-sg
 
 ### Tests:
 https://docs.python.org/3/library/unittest.html — unittest documentation.
+
+### Backwards Pass:
+https://www.geeksforgeeks.org/machine-learning/backpropagation-in-neural-network/
+
+### Logistic Regression:
+https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
